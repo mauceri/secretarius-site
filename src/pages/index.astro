@@ -1,11 +1,150 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const title = "Secretarius";
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>{title}</title>
+
+  <style>
+    :root {
+      font-family: Georgia, "Times New Roman", serif;
+      color: #242424;
+      background: #faf9f6;
+    }
+
+    body {
+      margin: 0;
+    }
+
+    main {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 8rem 2rem 4rem;
+    }
+
+    h1 {
+      font-size: 3.5rem;
+      font-weight: 400;
+      letter-spacing: -0.04em;
+      margin-bottom: 1rem;
+    }
+
+    .subtitle {
+      font-size: 1.5rem;
+      line-height: 1.5;
+      color: #555;
+      margin-bottom: 5rem;
+    }
+
+    section {
+      margin: 4rem 0;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      font-weight: 500;
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+    }
+
+    .principles {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    footer {
+      border-top: 1px solid #ddd;
+      margin-top: 6rem;
+      padding-top: 2rem;
+      font-family: sans-serif;
+      font-size: .9rem;
+    }
+
+    footer a {
+      color: inherit;
+      margin-right: 1.5rem;
+    }
+
+    @media (max-width: 600px) {
+      main {
+        padding-top: 4rem;
+      }
+
+      .principles {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <header>
+      <h1>Secretarius</h1>
+
+      <p class="subtitle">
+        Un assistant personnel fondé sur les modèles de langage,
+        conçu pour laisser à son utilisateur le contrôle de ses
+        données et de ses outils.
+      </p>
+    </header>
+
+    <section>
+      <h2>Le projet</h2>
+
+      <p>
+        Secretarius explore une approche de l'assistant personnel
+        dans laquelle modèles ouverts, services connectés et
+        traitement local peuvent être combinés selon les besoins
+        de l'utilisateur.
+      </p>
+    </section>
+
+    <section>
+      <h2>Principes</h2>
+
+      <div class="principles">
+        <div>
+          <strong>Contrôle</strong>
+          <p>L'utilisateur conserve la maîtrise de ses données et des services auxquels il donne accès.</p>
+        </div>
+
+        <div>
+          <strong>Confidentialité</strong>
+          <p>Le traitement local est privilégié lorsqu'il constitue une solution appropriée.</p>
+        </div>
+
+        <div>
+          <strong>Ouverture</strong>
+          <p>Secretarius privilégie les modèles, protocoles et composants ouverts.</p>
+        </div>
+
+        <div>
+          <strong>Extensibilité</strong>
+          <p>L'assistant peut intégrer différents outils et services sans dépendre d'un fournisseur unique.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <a href="/privacy">Confidentialité</a>
+      <a href="/terms">Conditions d'utilisation</a>
+      <a href="mailto:contact@secretarius.co">Contact</a>
+
+      <p class="ai-credit">
+        Conçu et rédigé en collaboration avec ChatGPT.
+      </p>
+
+    </footer>
+  </main>
+</body>
+</html>
+
