@@ -49,14 +49,21 @@ const title = "Politique de confidentialité — Secretarius";
 
 <h1>Politique de confidentialité</h1>
 
-<p>Dernière mise à jour : septembre 2026</p>
+<p>Dernière mise à jour : 26 septembre 2026</p>
+
+<h2>Responsable du traitement</h2>
+
+<p>
+Christian Mauceri, France. Contact :
+<a href="mailto:privacy@secretarius.co">privacy@secretarius.co</a>.
+</p>
 
 <h2>Secretarius et ses instances</h2>
 
 <p>
 Secretarius est un projet d'assistant personnel fondé sur les modèles
 de langage. Il est conçu pour permettre à chaque utilisateur d'exécuter
-et de configurer sa propre instance de l'assistant et de contrôler les
+et de configurer sa propre instance de l'assistant, et de contrôler les
 services auxquels celle-ci peut accéder.
 </p>
 
@@ -70,7 +77,7 @@ informatiques distants.
 
 <p>
 Primicerius est la première instance opérationnelle de Secretarius.
-Elle sert notamment d'assistant au projet Secretarius et constitue
+Il sert notamment d'assistant au projet Secretarius et constitue
 l'instance de référence utilisée pour développer et tester ses
 fonctionnalités.
 </p>
@@ -80,68 +87,130 @@ Primicerius peut être autorisé à accéder à Gmail, Google Calendar et
 Google Drive.
 </p>
 
-<h2>Utilisation des données Google</h2>
+<h2>Données Google utilisées et finalités</h2>
 
 <p>
-L'accès aux données Google est utilisé exclusivement pour exécuter les
-fonctions demandées par l'utilisateur, notamment consulter et traiter
-des courriels, interagir avec un calendrier et accéder aux documents
-nécessaires à une tâche.
+L'accès aux données Google sert exclusivement à exécuter les fonctions
+demandées par l'utilisateur : lister, rechercher et lire des courriels,
+préparer une réponse à un courriel, rechercher des fichiers dans Google
+Drive, et consulter un calendrier.
 </p>
 
 <p>
-L'accès à ces services est soumis à l'autorisation explicite de
+L'accès à Google Drive est limité à la recherche : l'assistant obtient
+des listes de fichiers correspondant à une requête, non leur contenu.
+</p>
+
+<p>
+Aucun envoi de courriel n'a lieu sans une confirmation explicite de
+l'utilisateur, demandée immédiatement avant l'envoi.
+</p>
+
+<p>
+L'accès à ces services est soumis à l'autorisation préalable de
 l'utilisateur par le mécanisme OAuth de Google.
 </p>
 
 <h2>Traitement local et distant</h2>
 
 <p>
-Selon la fonction utilisée et la configuration de l'instance, les
-données peuvent être traitées localement sur les équipements de
-l'utilisateur ou par une infrastructure informatique distante.
+Une partie du traitement s'exécute sur les équipements de l'utilisateur,
+sans transmission à un tiers : le routage des commandes, l'indexation de
+la base documentaire, et l'analyse de sécurité appliquée aux contenus
+extérieurs. Cette analyse comprend le nettoyage du contenu reçu et la
+détection des tentatives de manipulation de l'assistant ; elle ne quitte
+jamais la machine.
 </p>
 
 <p>
-Lorsqu'un traitement distant est utilisé, Secretarius peut appliquer
-des mécanismes de minimisation, de transformation ou d'obfuscation afin
-de limiter l'exposition des données originales.
+Certaines fonctions requièrent en revanche un service d'inférence
+distant, car elles dépassent la capacité d'un modèle installé
+localement. Dans ce cas, seul le contenu nécessaire à l'exécution de la
+fonction demandée est transmis, et pour la seule durée de cette
+exécution.
 </p>
 
-<h2>Partage et utilisation des données</h2>
+<h2>Destinataires</h2>
 
 <p>
-Les données obtenues par l'intermédiaire des API Google ne sont ni
-vendues ni utilisées à des fins publicitaires.
+<strong>Service d'inférence principal.</strong> Les commandes portant sur
+Gmail, Google Drive et Google Calendar sont exécutées par un composant
+qui s'appuie sur le service d'inférence d'Infomaniak, hébergé en Suisse.
+Ce service reçoit le contenu des courriels consultés, recherchés ou lus,
+le texte des réponses préparées, et les résultats de recherche Drive.
 </p>
 
 <p>
-Lorsque l'exécution d'une fonction nécessite un service distant,
-certaines informations peuvent être transmises à un prestataire
-technique dans la mesure nécessaire à l'exécution de cette fonction.
+<strong>Vérification anti-injection.</strong> Lorsque l'utilisateur
+demande cette vérification sur un message reçu, le corps du message est
+en outre transmis à un second service d'inférence, DeepSeek, situé hors
+de l'Espace économique européen. Sa tâche est limitée à restituer sous
+forme structurée un texte déjà nettoyé et évalué localement ; l'analyse
+de sécurité n'est pas déléguée.
 </p>
 
-<h2>Stockage et conservation</h2>
+<p>
+<strong>Traitements documentaires.</strong> Les infrastructures utilisées
+pour certains traitements de la base documentaire, avec des modèles
+transformés de façon à ne pas exposer les textes en clair, notamment
+Modal, RunPod ou SeeWeb, ne reçoivent aucune donnée issue des API
+Google.
+</p>
 
 <p>
-Secretarius est conçu pour limiter le stockage des données personnelles
-à ce qui est nécessaire aux fonctions utilisées. Les modalités de
-stockage et de conservation dépendent de la configuration de l'instance
-et des services activés par son utilisateur.
+Aucun autre destinataire n'intervient. Les données obtenues par
+l'intermédiaire des API Google ne sont ni vendues, ni utilisées à des
+fins publicitaires, ni communiquées à des courtiers en données. Tout
+changement de service d'inférence sera reflété dans cette page.
+</p>
+
+<h2>Absence d'utilisation pour l'entraînement</h2>
+
+<p>
+Les données obtenues par l'intermédiaire des API Google ne sont 
+utilisées ni pour développer, ni pour entraîner, ni pour améliorer 
+des modèles d'intelligence artificielle généralistes. Primicerius 
+ne procède à aucun usage de cette nature, et ne recourt, pour 
+traiter ces données, qu'à des services d'inférence dont les 
+conditions contractuelles excluent un tel usage.
+</p>
+
+<h2>Conservation et suppression</h2>
+
+<p>
+Le stockage est toujours local, sur les équipements de l'utilisateur, et
+limité à ce qui est nécessaire aux fonctions utilisées.
+</p>
+
+<p>
+Les contenus Google ne sont pas conservés au-delà de l'exécution de la
+fonction demandée, à l'exception de ce que l'utilisateur choisit
+explicitement d'enregistrer dans sa propre base documentaire. La
+révocation de l'accès depuis le compte Google interrompt immédiatement
+tout accès ultérieur. L'utilisateur peut supprimer à tout moment les
+éléments enregistrés, qui résident sur ses machines.
+</p>
+
+<h2>Accès humain</h2>
+
+<p>
+Chaque instance est exploitée par son propre utilisateur, qui est seul à
+pouvoir consulter les données auxquelles elle accède. Aucune autre
+personne n'y a accès.
 </p>
 
 <h2>Contrôle de l'utilisateur</h2>
 
 <p>
-L'utilisateur contrôle les services auxquels son instance de Secretarius
-est autorisée à accéder. Il peut notamment révoquer l'accès à son compte
-Google depuis les paramètres de sécurité de son compte Google.
+L'utilisateur contrôle les services auxquels Primicerius est autorisé à
+accéder. Il peut notamment révoquer cet accès depuis les paramètres de
+sécurité de son compte Google.
 </p>
 
 <h2>Google API Services</h2>
 
 <p>
-L'utilisation et le transfert par Secretarius des informations reçues
+L'utilisation et le transfert par Primicerius des informations reçues
 des API Google respectent la Google API Services User Data Policy,
 y compris les exigences de Limited Use.
 </p>
@@ -157,11 +226,10 @@ données :
 <footer>
   <a href="/">← Secretarius</a>
   <p class="ai-credit">
-    Conçu et rédigé en collaboration avec ChatGPT.
+    Conçu et rédigé en collaboration avec ChatGPT et Claude.
   </p>
 </footer>
 
 </main>
 </body>
 </html>
-
